@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23030c1c%22/%3E%3Ctext x=%2250%22 y=%2266%22 font-size=%2255%22 font-family=%22Arial,sans-serif%22 font-weight=%22bold%22 fill=%22%2300b4d8%22 text-anchor=%22middle%22%3EJ%3C/text%3E%3C/svg%3E">
+<title>AI Trust Center — Junaid Hassan | How AI Is Used & Governed</title>
+<meta name="description" content="How AI is used across Verity Legal and client builds: governance aligned to the NIST AI RMF, what's AI-generated vs human-reviewed, data handling, and stated limits.">
+<meta name="theme-color" content="#030c1c">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="AI Trust Center — Junaid Hassan">
+<meta property="og:description" content="How AI is used across Verity Legal and client builds: governance aligned to the NIST AI RMF, what's AI-generated vs human-reviewed, data handling, and stated limits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verity-legal-sc28.vercel.app/trust.html">
+<link rel="canonical" href="https://verity-legal-sc28.vercel.app/trust.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Trust Center — Junaid Hassan">
+<meta name="twitter:description" content="How AI is used across Verity Legal and client builds: governance aligned to the NIST AI RMF, what's AI-generated vs human-reviewed, data handling, and stated limits.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<div class="page-lines" aria-hidden="true">
+  <span class="pl-h"></span><span class="pl-h"></span><span class="pl-h"></span><span class="pl-h"></span><span class="pl-h"></span>
+  <span class="pl-h"></span><span class="pl-h"></span><span class="pl-h"></span><span class="pl-h"></span><span class="pl-h"></span>
+  <span class="pl-v"></span><span class="pl-v"></span><span class="pl-v"></span><span class="pl-v"></span><span class="pl-v"></span>
+  <span class="pl-v"></span><span class="pl-v"></span><span class="pl-v"></span><span class="pl-v"></span>
+  <span class="pl-d"></span><span class="pl-d"></span><span class="pl-d"></span><span class="pl-d"></span><span class="pl-d"></span>
+</div>
+
+<canvas id="bg-aurora" aria-hidden="true"></canvas>
+<canvas id="bg-hex"    aria-hidden="true"></canvas>
+<canvas id="bg-stars"  aria-hidden="true"></canvas>
+<div class="bg-orbs" aria-hidden="true"></div>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Page scroll progress"></div>
+
+<div class="announce-bar" id="announceBar">
+  <div class="announce-outer">
+    <div class="announce-track" aria-label="Available for global projects">
+      <div class="announce-group">
+        <span>Junaid Hassan</span><span class="sep">✦</span>
+        <span>AI Governance · NIST RMF Aligned</span><span class="sep">✦</span>
+        <span>Remote · Open to Global Work</span><span class="sep">✦</span>
+        <span>Available — Immediate Start</span><span class="sep">✦</span>
+      </div>
+      <div class="announce-group" aria-hidden="true">
+        <span>Junaid Hassan</span><span class="sep">✦</span>
+        <span>AI Governance · NIST RMF Aligned</span><span class="sep">✦</span>
+        <span>Remote · Open to Global Work</span><span class="sep">✦</span>
+        <span>Available — Immediate Start</span><span class="sep">✦</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+  <a href="index.html#top" class="logo logo-pill">JUNAID<span>·</span>HASSAN</a>
+  <div class="nav-cluster">
+    <nav class="pill-nav" aria-label="Primary">
+      <ul>
+        <li><a href="about.html" class="navlink">About</a></li>
+        <li><a href="services.html" class="navlink">Services</a></li>
+        <li><a href="work.html" class="navlink">Work</a></li>
+        <li><a href="pricing.html" class="navlink">Pricing</a></li>
+        <li><a href="contact.html" class="navlink">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="nav-cta-circle" aria-label="Book a call">→</a>
+    <button class="mobile-toggle" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu" type="button">
+      <span class="hb-bar"></span>
+      <span class="hb-bar"></span>
+      <span class="hb-bar"></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <nav aria-label="Mobile">
+    <a href="index.html#top" class="mobile-navlink">Home</a>
+    <a href="about.html" class="mobile-navlink">About</a>
+    <a href="services.html" class="mobile-navlink">Services</a>
+    <a href="work.html" class="mobile-navlink">Work</a>
+    <a href="testimonials.html" class="mobile-navlink">Testimonials</a>
+    <a href="pricing.html" class="mobile-navlink">Pricing</a>
+    <a href="trust.html" class="mobile-navlink">AI Trust Center</a>
+    <a href="legal.html" class="mobile-navlink">Legal &amp; Security</a>
+    <a href="contact.html" class="mobile-navlink">Contact</a>
+  </nav>
+</div>
+
+<main id="main-content">
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html#top">Home</a> <span>/</span> <span>AI Trust Center</span></div>
+    <div class="eyebrow mono">AI Trust Center</div>
+    <h1>How AI is actually used in what I build, in plain language.</h1>
+    <p class="page-sub">AI automation is the core of what I sell — so a vague "we use AI responsibly" line isn't enough. This page states directly what's AI-generated, what's human-reviewed, how client data is handled around AI systems, and where the real limits are.</p>
+  </div>
+</section>
+
+<!-- ============ GOVERNANCE APPROACH ============ -->
+<section id="governance">
+  <div class="container">
+    <div class="eyebrow mono">Governance Approach</div>
+    <h2>Aligned to recognized frameworks — stated honestly about what that does and doesn't mean.</h2>
+    <p class="section-intro">For a solo developer, formal certification (ISO/IEC 42001) isn't realistic or proportionate — that's an audited management-system standard built for organizations with dedicated compliance teams. What is both realistic and genuinely useful is structuring AI-related decisions the way the NIST AI Risk Management Framework describes: a voluntary, four-function structure for identifying and managing AI risk, not a checkbox.</p>
+
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <div class="tc-icon">G</div>
+        <h4>Govern</h4>
+        <p>Written internal policy on what AI is and isn't used for in client-facing systems, reviewed as each new project starts — not a one-time document that goes stale.</p>
+      </div>
+      <div class="trust-card reveal">
+        <div class="tc-icon">M</div>
+        <h4>Map</h4>
+        <p>Before any AI feature ships, I document what it touches — what data goes in, what decisions it influences, and what happens if its output is wrong.</p>
+      </div>
+      <div class="trust-card reveal">
+        <div class="tc-icon">Ms</div>
+        <h4>Measure</h4>
+        <p>AI outputs that affect a real decision (legal search results, qualification scoring) are tested against known-correct cases before and after any model or prompt change.</p>
+      </div>
+      <div class="trust-card reveal">
+        <div class="tc-icon">Mn</div>
+        <h4>Manage</h4>
+        <p>A defined path exists for what happens when an AI system gets something wrong — human review, correction, and a record of what changed and why.</p>
+      </div>
+    </div>
+
+    <div class="ph-notice">
+      <span class="ph-icon">ⓘ</span>
+      <span><strong>Stated precisely:</strong> this means AI-related work is structured in alignment with the NIST AI RMF's four functions. It is not a claim of NIST certification (the framework has no certification path) or ISO/IEC 42001 certification. If a client's vendor questionnaire specifically requires ISO 42001 certification, that should be raised directly during scoping — it is not something a solo independent developer can currently provide.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHERE AI IS USED ============ -->
+<section id="where-used">
+  <div class="container">
+    <div class="eyebrow mono">Where AI Is Used</div>
+    <h2>What's AI-generated, and what's human-reviewed.</h2>
+    <div class="pillar-list" style="max-width:820px;">
+      <div class="pillar">
+        <div class="pillar-mark">01</div>
+        <div>
+          <h4>AI legal document search (Verity Legal)</h4>
+          <p>Embedding-based search surfaces relevant laws and documents from an indexed database. The AI ranks and retrieves — it does not generate legal conclusions, and every surfaced result links back to its actual source document for verification, never a paraphrase presented as the source.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-mark">02</div>
+        <div>
+          <h4>AI legal assistant personas (CaseMind, ContractBot, ResearchBot)</h4>
+          <p>These generate drafts and suggestions grounded in retrieved source material. They are built and disclosed as drafting aids, not as a substitute for a licensed legal professional's review and sign-off — a distinction kept explicit in the product itself, not just in a footnote.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-mark">03</div>
+        <div>
+          <h4>Lead qualification &amp; outreach (LeadGen AI)</h4>
+          <p>GPT-based scoring against a defined ICP and personalized first-touch message generation. Qualification criteria are explicit and client-set, not an opaque black-box score — a client can always see why a lead was scored the way it was.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-mark">04</div>
+        <div>
+          <h4>General automation &amp; workflow agents</h4>
+          <p>Custom agents built per engagement follow the same rule: any step where an AI output could materially affect a business or legal outcome gets a defined human checkpoint, agreed during scoping — not assumed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DATA HANDLING ============ -->
+<section id="data-handling">
+  <div class="container">
+    <div class="eyebrow mono">Data &amp; Model Handling</div>
+    <h2>Where your data goes when AI is in the loop.</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Question</th><th>Answer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Which AI providers are used</strong></td><td>Anthropic's Claude API and OpenAI's GPT API, called directly through their standard commercial APIs — no self-hosted or third-party model relay in between.</td></tr>
+          <tr><td><strong>Is client data used to train models</strong></td><td>No. API-tier usage of both providers is used under their standard commercial terms, which do not train on API inputs by default. This is confirmed per-project, not assumed.</td></tr>
+          <tr><td><strong>Where is data stored</strong></td><td>Primary data storage is Supabase/PostgreSQL with row-level security per tenant. Data residency requirements (e.g. EU-only storage) are a scoping question, not an afterthought.</td></tr>
+          <tr><td><strong>Who can access client data</strong></td><td>As a solo developer, I am the only person with production access during development. Access is removed at handover unless an ongoing retainer is agreed — see the offboarding note below.</td></tr>
+          <tr><td><strong>What happens at offboarding</strong></td><td>Credentials, API keys, and access are rotated or revoked at the end of an engagement. This is a checklist step at handover, not something that happens only if asked.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIMITS ============ -->
+<section id="limits">
+  <div class="container">
+    <div class="eyebrow mono">Stated Limits</div>
+    <h2>Where AI shouldn't be trusted blindly — including in what I build.</h2>
+    <p class="section-intro">A trust page that only lists safeguards isn't fully honest. These are the real limits of current AI systems that apply to this work specifically.</p>
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <h4>Legal AI is a drafting aid, not legal advice</h4>
+        <p>Every AI legal assistant persona in Verity Legal is built and labeled as a tool to assist a licensed professional — never positioned as a replacement for one, in the product or in how it's described here.</p>
+      </div>
+      <div class="trust-card reveal">
+        <h4>Models can be confidently wrong</h4>
+        <p>Retrieval-grounded answers reduce but don't eliminate this. Any AI output feeding a consequential decision is scoped with a human review step — stated during project scoping, not discovered later.</p>
+      </div>
+      <div class="trust-card reveal">
+        <h4>This page is reviewed, not static</h4>
+        <p>As AI providers' terms, regulations (including the EU AI Act), and my own practices evolve, this page is updated to match — not left as a launch-day snapshot.</p>
+      </div>
+    </div>
+
+    <div class="center-cta">
+      <a href="legal.html" class="btn btn-ghost">See full privacy &amp; security details <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-orb" aria-hidden="true"></div>
+  <div class="footer-orb-2" aria-hidden="true"></div>
+  <div class="footer-frost" aria-hidden="true"></div>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="index.html#top" class="logo">JUNAID<span>·</span>HASSAN</a>
+        <p>AI Automation Engineer, specializing in Legal Tech. Building production-grade AI systems — solo, architecture to deployment, in the open.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/junaidxaiautomation" target="_blank" rel="noopener noreferrer" class="footer-social-pill">in LinkedIn</a>
+          <a href="https://github.com/JunaidxAutomation" target="_blank" rel="noopener noreferrer" class="footer-social-pill">◎ GitHub</a>
+          <a href="https://www.upwork.com/freelancers/~0137bbeb7425fe8586" target="_blank" rel="noopener noreferrer" class="footer-social-pill">↗ Upwork</a>
+          <a href="https://wa.me/923130654431" target="_blank" rel="noopener noreferrer" class="footer-social-pill">✆ WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Trust &amp; Legal</h5>
+        <ul>
+          <li><a href="trust.html">AI Trust Center</a></li>
+          <li><a href="legal.html">Privacy &amp; Security</a></li>
+          <li><a href="legal.html#security-profile">Security Profile (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:junaid.aideveloper@gmail.com">Email</a></li>
+          <li><a href="https://wa.me/923130654431" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="https://www.upwork.com/freelancers/~0137bbeb7425fe8586" target="_blank" rel="noopener noreferrer">Hire on Upwork</a></li>
+          <li><a href="https://verity-legal-sc28.vercel.app" target="_blank" rel="noopener noreferrer">Verity Legal</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <div class="footer-copy">© 2026 Junaid Hassan. All rights reserved.</div>
+        <div class="footer-tagline">Built with intent. <span>Built in the open.</span></div>
+      </div>
+      <a href="#top" class="footer-back-top">
+        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        Back to top
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="bg.js"></script>
+<script src="base.js"></script>
+
+
+</body>
+</html>
