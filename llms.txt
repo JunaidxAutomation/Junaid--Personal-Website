@@ -1,0 +1,31 @@
+# Junaid Hassan
+
+> AI Automation Engineer and Legal Tech Specialist. Builds production-grade AI systems, full-stack SaaS products, and B2B automation — deployed solo, shipped to production, used by real businesses (not demos or prototypes).
+
+Junaid Hassan is based in Wazirabad, Pakistan, and works with law firms and B2B companies globally on AI automation, legal technology, and custom software systems.
+
+## Core Services
+
+- AI Agents & Automation — custom AI workflows and agent systems for business processes
+- Full-Stack SaaS Development — end-to-end product builds, from architecture to deployment
+- Legal Tech — purpose-built software for law firms and legal operations teams
+
+## Featured Work
+
+- [Verity Legal](https://verity-legal-sc28.vercel.app): A real, production legal-tech SaaS platform built end-to-end, addressing document and workflow problems for legal practices.
+
+## Pages
+
+- [Home](https://junaid-hassan.vercel.app/): Overview, featured work, and introduction
+- [About](https://junaid-hassan.vercel.app/about.html): Background, skills, and working approach
+- [Services](https://junaid-hassan.vercel.app/services.html): Detailed service offerings
+- [Work](https://junaid-hassan.vercel.app/work.html): Case studies and shipped projects
+- [Pricing](https://junaid-hassan.vercel.app/pricing.html): Engagement models and rates
+- [Testimonials](https://junaid-hassan.vercel.app/testimonials.html): Client feedback
+- [Trust](https://junaid-hassan.vercel.app/trust.html): Security, privacy, and working practices
+- [Contact](https://junaid-hassan.vercel.app/contact.html): Get in touch
+
+## Contact
+
+- Email: junaid.aideveloper@gmail.com
+- LinkedIn: https://www.linkedin.com/in/junaidxaiautomation

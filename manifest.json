@@ -1,0 +1,19 @@
+{
+  "name": "Junaid Hassan — AI Automation Engineer",
+  "short_name": "Junaid Hassan",
+  "description": "AI Automation Engineer and Legal Tech Specialist. Production-grade AI systems, Legal Tech SaaS, and B2B automation.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#030c1c",
+  "theme_color": "#030c1c",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23030c1c'/%3E%3Ctext x='50' y='66' font-size='55' font-family='Arial,sans-serif' font-weight='bold' fill='%2300b4d8' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
