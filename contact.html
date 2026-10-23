@@ -152,7 +152,11 @@
         <h2>Tell me about the project.</h2>
         <p style="color:var(--muted); font-size:.92rem; line-height:1.7; margin-bottom:1.6rem;">A few quick details up front means the first real conversation can start on the actual problem — not a round of "so what are you looking for" back-and-forth. No discovery calls until we've scoped the problem together in writing.</p>
 
-        <form class="contact-form" action="mailto:junaid.aideveloper@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" id="cf-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="02e57988-e97d-4bc2-8302-82cf06db4901">
+          <input type="hidden" name="subject" value="New project inquiry — junaid-hassan.vercel.app">
+          <input type="hidden" name="from_name" value="Portfolio Contact Form">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
           <div class="form-row">
             <div class="form-field">
               <label for="cf-name">Name</label>
@@ -189,13 +193,64 @@
             <label for="cf-message">Project details</label>
             <textarea id="cf-message" name="message" required placeholder="What's the problem you're trying to solve? The more specific, the faster I can give you a useful answer."></textarea>
           </div>
-          <button type="submit" class="btn btn-liquid" style="align-self:flex-start;">Send message <span class="btn-arrow">→</span></button>
+          <button type="submit" class="btn btn-liquid" id="cf-submit-btn" style="align-self:flex-start;">
+            <span class="btn-text">Send message</span> <span class="btn-arrow">→</span>
+          </button>
+          <div id="cf-result" role="status" aria-live="polite" style="margin-top:1rem; font-size:.9rem; display:none;"></div>
         </form>
 
         <div class="ph-notice" style="margin-top:1.6rem;">
           <span class="ph-icon">ⓘ</span>
-          <span>This form opens your email client with the details pre-filled — nothing is sent through a third-party server. Prefer WhatsApp or a direct email? Both are listed below.</span>
+          <span>Submissions go straight to my inbox via an encrypted form service — no account, no tracking cookies, nothing stored beyond the email. Prefer WhatsApp or a direct email? Both are listed below.</span>
         </div>
+
+        <script>
+        (function(){
+          var form = document.getElementById('cf-form');
+          if(!form) return;
+          var btn = document.getElementById('cf-submit-btn');
+          var btnText = btn.querySelector('.btn-text');
+          var result = document.getElementById('cf-result');
+
+          form.addEventListener('submit', function(e){
+            e.preventDefault();
+            btn.disabled = true;
+            btnText.textContent = 'Sending…';
+            result.style.display = 'none';
+
+            var formData = new FormData(form);
+            var object = Object.fromEntries(formData);
+            var json = JSON.stringify(object);
+
+            fetch(form.action, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: json
+            })
+            .then(function(response){ return response.json(); })
+            .then(function(data){
+              result.style.display = 'block';
+              if(data.success){
+                result.style.color = 'var(--teal, #00b4d8)';
+                result.textContent = '✓ Message sent — I\'ll reply within 24 hours.';
+                form.reset();
+              } else {
+                result.style.color = '#ff6b6b';
+                result.textContent = 'Something went wrong. Please email me directly at junaid.aideveloper@gmail.com.';
+              }
+            })
+            .catch(function(){
+              result.style.display = 'block';
+              result.style.color = '#ff6b6b';
+              result.textContent = 'Network error. Please email me directly at junaid.aideveloper@gmail.com.';
+            })
+            .finally(function(){
+              btn.disabled = false;
+              btnText.textContent = 'Send message';
+            });
+          });
+        })();
+        </script>
       </div>
 
       <div class="media-col">
