@@ -212,3 +212,177 @@
 /* ---- Small utility ------------------------------------------------------- */
 .mt-0{ margin-top:0 !important; }
 .center-cta{ text-align:center; margin-top:3rem; }
+
+/* =========================================================================
+   SERVICES — HORIZONTAL SCROLL-PINNED SHOWCASE (services.html)
+   Desktop/tablet (pointer: fine, width > 900px): GSAP ScrollTrigger pins
+   the stage and translates .svc-track horizontally as the user scrolls.
+   Mobile / touch / narrow: native CSS scroll-snap carousel — no pinning,
+   no JS dependency, buttery-smooth on touch.
+   Reduced motion: GSAP scrub is skipped entirely (see base.js companion).
+   ========================================================================= */
+
+.svc-scroll-hint{ margin-bottom:1.4rem !important; }
+
+.svc-pin-stage{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+
+.svc-track{
+  display:flex;
+  flex-direction:row;
+  will-change:transform;
+}
+
+.svc-panel{
+  flex:0 0 100%;
+  width:100%;
+  min-height:560px;
+  display:grid;
+  grid-template-columns:0.95fr 1.05fr;
+  gap:3rem;
+  align-items:center;
+  padding:1rem 6vw;
+  box-sizing:border-box;
+}
+
+/* ---- Image frame — mirrors .photo-frame visual language ----------------- */
+.svc-media{ width:100%; }
+.svc-frame{
+  position:relative;
+  aspect-ratio:4/5;
+  width:100%;
+  max-width:460px;
+  border-radius:18px;
+  overflow:hidden;
+  background:linear-gradient(155deg, var(--surface), var(--surface-2));
+  border:1px solid var(--line);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 1px 0 rgba(0,0,0,.4),
+    0 3px 8px -3px rgba(0,0,0,.5),
+    0 14px 22px -14px rgba(0,0,0,.55);
+  transition:transform .4s cubic-bezier(.19,1,.22,1), box-shadow .4s ease, border-color .4s ease;
+}
+.svc-frame:hover{
+  border-color:var(--teal-dim);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 1px 0 rgba(0,0,0,.4),
+    0 3px 8px -3px rgba(0,0,0,.5),
+    0 18px 30px -16px rgba(0,0,0,.6);
+}
+.svc-frame img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.svc-frame-fallback{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.7rem;
+  opacity:0; pointer-events:none;
+}
+.svc-frame-icon{
+  font-size:2.6rem; color:var(--teal); opacity:.55;
+}
+.svc-frame-mono{
+  font-family:'JetBrains Mono', monospace; font-size:.75rem; color:var(--muted);
+  letter-spacing:.04em; text-transform:uppercase;
+}
+/* Fallback shows only once the <img> actually fails to load */
+.svc-frame--empty img{ display:none; }
+.svc-frame--empty .svc-frame-fallback{ opacity:1; }
+
+/* ---- Copy card — reuses the ocean-glass service-card system ------------- */
+.svc-copy{
+  position:relative; overflow:hidden; border-radius:18px;
+  padding:2.4rem 2.2rem;
+  background:linear-gradient(155deg, var(--surface), var(--surface-2));
+  border:1px solid var(--line);
+}
+.svc-copy .snum{ font-size:.8rem; color:var(--teal); opacity:.8; margin-bottom:.6rem; }
+.svc-copy h3{ font-family:'Fraunces', serif; font-size:1.5rem; font-weight:600; margin-bottom:.9rem; }
+.svc-copy p{ color:var(--muted); line-height:1.7; font-size:.97rem; }
+
+/* ---- Progress dots -------------------------------------------------------*/
+.svc-progress{
+  display:flex; gap:.5rem; justify-content:center;
+  margin-top:1.8rem;
+}
+.svc-dot{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--line);
+  transition:background .3s ease, transform .3s ease;
+}
+.svc-dot.is-active{
+  background:var(--teal);
+  transform:scale(1.35);
+}
+
+/* =========================================================================
+   DESKTOP / TABLET — pointer:fine → GSAP pin-scroll takes over (JS adds
+   .svc-pinned to the stage once ScrollTrigger initializes). Until JS runs,
+   panels stack normally so the page is never broken without JS.
+   ========================================================================= */
+@media (min-width:901px){
+  .svc-pin-stage.svc-js-ready{
+    height:100vh;
+  }
+  .svc-pin-stage.svc-js-ready .svc-track{
+    position:relative;
+    height:100%;
+    flex-wrap:nowrap;
+  }
+  .svc-pin-stage.svc-js-ready .svc-panel{
+    height:100%;
+    min-height:0;
+  }
+}
+
+/* No-JS / JS-not-ready fallback on desktop: simple vertical stack */
+@media (min-width:901px){
+  .svc-pin-stage:not(.svc-js-ready) .svc-track{
+    flex-direction:column;
+  }
+  .svc-pin-stage:not(.svc-js-ready) .svc-panel{
+    min-height:auto;
+    padding:3rem 6vw;
+  }
+}
+
+/* =========================================================================
+   MOBILE / TABLET-TOUCH — native scroll-snap carousel, no pin, no JS needed
+   ========================================================================= */
+@media (max-width:900px){
+  .svc-pin-stage{
+    height:auto;
+  }
+  .svc-track{
+    display:flex;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .svc-track::-webkit-scrollbar{ display:none; }
+  .svc-panel{
+    flex:0 0 100%;
+    width:100%;
+    scroll-snap-align:center;
+    grid-template-columns:1fr;
+    gap:1.6rem;
+    padding:0 6vw;
+    min-height:auto;
+  }
+  .svc-frame{ max-width:340px; margin:0 auto; aspect-ratio:4/3; }
+  .svc-copy{ padding:1.8rem 1.6rem; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .svc-frame, .svc-dot{ transition:none; }
+}

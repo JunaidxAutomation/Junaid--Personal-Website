@@ -40,6 +40,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="base.css">
 <link rel="stylesheet" href="pages.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -126,42 +128,92 @@
   </div>
 </section>
 
-<!-- ============ SERVICES GRID ============ -->
-<section id="services-detail">
+<!-- ============ SERVICES — HORIZONTAL SHOWCASE ============ -->
+<section id="services-detail" class="svc-showcase">
   <div class="container">
     <div class="eyebrow mono">What I Build</div>
     <h2>Three areas, one standard.</h2>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <span class="edge-signal v left" aria-hidden="true"></span>
-        <span class="edge-signal v right" aria-hidden="true"></span>
-        <span class="edge-signal h top" aria-hidden="true"></span>
-        <span class="edge-signal h bottom" aria-hidden="true"></span>
-        <div class="snum mono">01</div>
-        <h3>AI Agents &amp; LLM Integration</h3>
-        <p>Custom AI agents on Claude API and OpenAI GPT that permanently eliminate repetitive bottlenecks from your operations. Production-grade — not sandbox experiments. Built for law firms, B2B companies, and founders who need automation that holds up under real daily volume, not just a live demo.</p>
-        <div class="skills-tags" style="margin-top:1.2rem;"><span class="skill-tag">Claude API</span><span class="skill-tag">OpenAI GPT</span><span class="skill-tag">n8n</span><span class="skill-tag">Custom Agents</span></div>
-      </div>
-      <div class="service-card reveal">
-        <span class="edge-signal v left" aria-hidden="true"></span>
-        <span class="edge-signal v right" aria-hidden="true"></span>
-        <span class="edge-signal h top" aria-hidden="true"></span>
-        <span class="edge-signal h bottom" aria-hidden="true"></span>
-        <div class="snum mono">02</div>
-        <h3>Full-Stack AI SaaS Development</h3>
-        <p>Scalable, production-ready SaaS platforms on Next.js 15, Python, and FastAPI — engineered for real business impact from day one. Multi-tenant architecture with Row-Level Security, background jobs via Inngest, AI features end-to-end. I build the whole thing solo — no hand-off gaps, no translation loss between layers.</p>
-        <div class="skills-tags" style="margin-top:1.2rem;"><span class="skill-tag">Next.js 15</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Supabase</span><span class="skill-tag">Multi-Tenant</span></div>
-      </div>
-      <div class="service-card reveal">
-        <span class="edge-signal v left" aria-hidden="true"></span>
-        <span class="edge-signal v right" aria-hidden="true"></span>
-        <span class="edge-signal h top" aria-hidden="true"></span>
-        <span class="edge-signal h bottom" aria-hidden="true"></span>
-        <div class="snum mono">03</div>
-        <h3>Legal Tech &amp; B2B Automation</h3>
-        <p>End-to-end automation for law firms and B2B businesses — case management, document processing, client acquisition pipelines. From lead discovery to booked meetings, fully hands-free. Built by someone who understands legal workflows from the inside — not a generic developer applying a legal label to generic software.</p>
-        <div class="skills-tags" style="margin-top:1.2rem;"><span class="skill-tag">Legal Tech</span><span class="skill-tag">Document AI</span><span class="skill-tag">CRM Automation</span><span class="skill-tag">n8n</span></div>
-      </div>
+    <p class="section-intro svc-scroll-hint">Scroll to move through each one — or swipe on mobile.</p>
+  </div>
+
+  <div class="svc-pin-stage" id="svcPinStage">
+    <div class="svc-track" id="svcTrack">
+
+      <article class="svc-panel reveal" data-index="0">
+        <div class="svc-media">
+          <div class="svc-frame">
+            <!-- REPLACE: put your AI-agents visual/screenshot here as assets/service-ai-agents.jpg -->
+            <img src="assets/service-ai-agents.jpg" alt="AI agent and automation workflow visual" loading="lazy" onerror="this.closest('.svc-frame').classList.add('svc-frame--empty')">
+            <div class="svc-frame-fallback" aria-hidden="true">
+              <span class="svc-frame-icon">◐</span>
+              <span class="svc-frame-mono">01 · AI Agents</span>
+            </div>
+          </div>
+        </div>
+        <div class="svc-copy">
+          <span class="edge-signal v left" aria-hidden="true"></span>
+          <span class="edge-signal v right" aria-hidden="true"></span>
+          <span class="edge-signal h top" aria-hidden="true"></span>
+          <span class="edge-signal h bottom" aria-hidden="true"></span>
+          <div class="snum mono">01</div>
+          <h3>AI Agents &amp; LLM Integration</h3>
+          <p>Custom AI agents on Claude API and OpenAI GPT that permanently eliminate repetitive bottlenecks from your operations. Production-grade — not sandbox experiments. Built for law firms, B2B companies, and founders who need automation that holds up under real daily volume, not just a live demo.</p>
+          <div class="skills-tags" style="margin-top:1.2rem;"><span class="skill-tag">Claude API</span><span class="skill-tag">OpenAI GPT</span><span class="skill-tag">n8n</span><span class="skill-tag">Custom Agents</span></div>
+        </div>
+      </article>
+
+      <article class="svc-panel reveal" data-index="1">
+        <div class="svc-media">
+          <div class="svc-frame">
+            <!-- REPLACE: put your SaaS dashboard screenshot here as assets/service-saas.jpg -->
+            <img src="assets/service-saas.jpg" alt="Full-stack SaaS platform dashboard visual" loading="lazy" onerror="this.closest('.svc-frame').classList.add('svc-frame--empty')">
+            <div class="svc-frame-fallback" aria-hidden="true">
+              <span class="svc-frame-icon">⬡</span>
+              <span class="svc-frame-mono">02 · Full-Stack SaaS</span>
+            </div>
+          </div>
+        </div>
+        <div class="svc-copy">
+          <span class="edge-signal v left" aria-hidden="true"></span>
+          <span class="edge-signal v right" aria-hidden="true"></span>
+          <span class="edge-signal h top" aria-hidden="true"></span>
+          <span class="edge-signal h bottom" aria-hidden="true"></span>
+          <div class="snum mono">02</div>
+          <h3>Full-Stack AI SaaS Development</h3>
+          <p>Scalable, production-ready SaaS platforms on Next.js 15, Python, and FastAPI — engineered for real business impact from day one. Multi-tenant architecture with Row-Level Security, background jobs via Inngest, AI features end-to-end. I build the whole thing solo — no hand-off gaps, no translation loss between layers.</p>
+          <div class="skills-tags" style="margin-top:1.2rem;"><span class="skill-tag">Next.js 15</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Supabase</span><span class="skill-tag">Multi-Tenant</span></div>
+        </div>
+      </article>
+
+      <article class="svc-panel reveal" data-index="2">
+        <div class="svc-media">
+          <div class="svc-frame">
+            <!-- REPLACE: put your Legal Tech visual/screenshot here as assets/service-legal-tech.jpg -->
+            <img src="assets/service-legal-tech.jpg" alt="Legal tech and B2B automation workflow visual" loading="lazy" onerror="this.closest('.svc-frame').classList.add('svc-frame--empty')">
+            <div class="svc-frame-fallback" aria-hidden="true">
+              <span class="svc-frame-icon">⚖</span>
+              <span class="svc-frame-mono">03 · Legal Tech</span>
+            </div>
+          </div>
+        </div>
+        <div class="svc-copy">
+          <span class="edge-signal v left" aria-hidden="true"></span>
+          <span class="edge-signal v right" aria-hidden="true"></span>
+          <span class="edge-signal h top" aria-hidden="true"></span>
+          <span class="edge-signal h bottom" aria-hidden="true"></span>
+          <div class="snum mono">03</div>
+          <h3>Legal Tech &amp; B2B Automation</h3>
+          <p>End-to-end automation for law firms and B2B businesses — case management, document processing, client acquisition pipelines. From lead discovery to booked meetings, fully hands-free. Built by someone who understands legal workflows from the inside — not a generic developer applying a legal label to generic software.</p>
+          <div class="skills-tags" style="margin-top:1.2rem;"><span class="skill-tag">Legal Tech</span><span class="skill-tag">Document AI</span><span class="skill-tag">CRM Automation</span><span class="skill-tag">n8n</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="svc-progress" aria-hidden="true">
+      <span class="svc-dot" data-dot="0"></span>
+      <span class="svc-dot" data-dot="1"></span>
+      <span class="svc-dot" data-dot="2"></span>
     </div>
   </div>
 </section>
@@ -328,6 +380,76 @@
 <script src="bg.js"></script>
 <script src="base.js"></script>
 
+<!-- ============ SERVICES — HORIZONTAL PIN-SCROLL (GSAP) ============ -->
+<script>
+(function(){
+  var stage = document.getElementById('svcPinStage');
+  var track = document.getElementById('svcTrack');
+  if(!stage || !track) return;
+
+  var panels = track.querySelectorAll('.svc-panel');
+  var dots = document.querySelectorAll('.svc-dot');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isDesktop = window.matchMedia('(min-width: 901px)').matches;
+  var hasGSAP = (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined');
+
+  function setActiveDot(i){
+    dots.forEach(function(d, idx){ d.classList.toggle('is-active', idx === i); });
+  }
+  setActiveDot(0);
+
+  // Mobile / reduced-motion / no-GSAP: native scroll-snap carousel handles
+  // everything via CSS already. We only wire up the dots here.
+  if(!hasGSAP || !isDesktop || reduceMotion){
+    if(track && 'IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting && entry.intersectionRatio > 0.5){
+            var idx = Array.prototype.indexOf.call(panels, entry.target);
+            if(idx > -1) setActiveDot(idx);
+          }
+        });
+      }, { root: track, threshold: [0.5] });
+      panels.forEach(function(p){ obs.observe(p); });
+    }
+    return;
+  }
+
+  // Desktop pin-scroll — GSAP ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+  stage.classList.add('svc-js-ready');
+
+  var panelCount = panels.length;
+  var scrollDistance = function(){ return track.scrollWidth - stage.clientWidth; };
+
+  var tween = gsap.to(track, {
+    x: function(){ return -scrollDistance(); },
+    ease: 'none',
+    scrollTrigger: {
+      trigger: stage,
+      pin: true,
+      scrub: 0.6,
+      start: 'top top',
+      end: function(){ return '+=' + (scrollDistance() + window.innerHeight * 0.6); },
+      invalidateOnRefresh: true,
+      onUpdate: function(self){
+        var idx = Math.min(panelCount - 1, Math.round(self.progress * (panelCount - 1)));
+        setActiveDot(idx);
+      }
+    }
+  });
+
+  // Guard: if window resizes across the desktop/mobile breakpoint, refresh.
+  var lastIsDesktop = isDesktop;
+  window.addEventListener('resize', function(){
+    var nowDesktop = window.matchMedia('(min-width: 901px)').matches;
+    if(nowDesktop !== lastIsDesktop){
+      lastIsDesktop = nowDesktop;
+      ScrollTrigger.refresh();
+    }
+  }, { passive: true });
+})();
+</script>
 
 </body>
 </html>
