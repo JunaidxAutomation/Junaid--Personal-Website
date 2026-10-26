@@ -386,3 +386,84 @@
 @media (prefers-reduced-motion:reduce){
   .svc-frame, .svc-dot{ transition:none; }
 }
+
+/* =========================================================================
+   ABOUT — TIMELINE V2 (year-anchor upgrade)
+   Adds a left-aligned year badge per entry so the timeline reads as a
+   scannable visual sequence, not just stacked paragraphs. Reuses the
+   existing .timeline/.tl-item/.tl-dot system in base.css — only adds
+   the year-badge column and widens the layout to fit it.
+   ========================================================================= */
+
+/* .tl-item is display:flex in base.css (gap:1.6rem between .tl-dot and
+   .tl-body). We insert .tl-year as the FIRST flex child, ahead of the dot,
+   so the existing flex flow handles spacing automatically — no absolute
+   positioning, no fighting the base layout. */
+.timeline-v2 .tl-item{
+  align-items:flex-start;
+}
+.timeline-v2 .tl-year{
+  flex-shrink:0;
+  width:3.4rem;
+  font-size:.74rem;
+  color:var(--teal);
+  letter-spacing:.02em;
+  line-height:1.3;
+  text-align:right;
+  padding-top:4px;
+}
+.timeline-v2 .tl-year-dash{
+  display:block;
+  color:var(--muted);
+  opacity:.6;
+  font-size:.68rem;
+}
+/* The connecting vertical line (.timeline::before) is positioned from the
+   timeline's own left edge; shift it to align with the dot's new position
+   (year-column width + the existing gap). */
+.timeline-v2.timeline::before{
+  left:calc(3.4rem + 1.6rem + 11px);
+}
+
+@media (max-width:640px){
+  .timeline-v2 .tl-year{ width:2.5rem; font-size:.64rem; }
+  .timeline-v2.timeline::before{ left:calc(2.5rem + 1.6rem + 11px); }
+}
+
+/* =========================================================================
+   TRUST — GOVERNANCE FLOW STRIP
+   A compact visual preview of the Govern→Map→Measure→Manage sequence,
+   sitting between the (now-shortened) intro paragraph and the detail
+   cards below. Purely a scan-aid — the cards still carry the full text.
+   ========================================================================= */
+.gov-flow{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:1.4rem 0 2rem;
+  padding:.9rem 1.2rem;
+  background:var(--teal-dim);
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.gov-flow-step{
+  font-family:'JetBrains Mono', monospace;
+  font-size:.78rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--teal);
+  padding:.3rem .7rem;
+  border-radius:999px;
+  background:var(--surface);
+  border:1px solid var(--line);
+}
+.gov-flow-arrow{
+  color:var(--muted);
+  opacity:.5;
+  font-size:.85rem;
+}
+@media (max-width:560px){
+  .gov-flow{ gap:.4rem; padding:.8rem 1rem; }
+  .gov-flow-step{ font-size:.7rem; padding:.25rem .55rem; }
+}
